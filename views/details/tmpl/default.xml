@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_LGSL_MENUITEM_DETAILS_TITLE">
+        <message>
+            COM_LGSL_MENUITEM_DETAILS_MESSAGE
+        </message>
+    </layout>
+    <fields name="request">
+        <fieldset name="request">
+            <field name="s" type="text"
+                label="COM_LGSL_MENUITEM_DETAILS_LABEL"
+                description=""
+                default="1">
+            </field>
+        </fieldset>
+    </fields>
+</metadata>
