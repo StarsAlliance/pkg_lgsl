@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5.0" method="upgrade">
+
+    <name>mod_lgsl</name>
+    <author>Richard Perry</author>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorEmail>use_forum</authorEmail>
+    <authorUrl>www.GreyCube.com</authorUrl>
+    <version>5.x</version>
+    <description>Live Game Server List</description>
+
+    <files>
+        <filename module="mod_lgsl">mod_lgsl.php</filename>
+        <filename>index.html</filename>
+    </files>
+
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_lgsl.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_lgsl.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+            <fieldset name="basic">
+                <field name="zone_number" type="list" default="1" label="MOD_LGSL_PARAMS_LABEL" description="MOD_LGSL_PARAMS_DESCRIPTION">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+
+</extension>
