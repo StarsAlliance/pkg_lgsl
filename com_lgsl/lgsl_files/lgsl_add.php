@@ -2,7 +2,7 @@
 
  /*----------------------------------------------------------------------------------------------------------\
  |                                                                                                            |
- |                      [ LIVE GAME SERVER LIST ] [ © RICHARD PERRY FROM GREYCUBE.COM ]                       |
+ |                      [ LIVE GAME SERVER LIST ] [ Â© RICHARD PERRY FROM GREYCUBE.COM ]                       |
  |                                                                                                            |
  |    Released under the terms and conditions of the GNU General Public License Version 3 (http://gnu.org)    |
  |                                                                                                            |
@@ -121,18 +121,18 @@
 
   lgsl_database();
 
-  $ip     = mysql_real_escape_string($ip);
-  $q_port = mysql_real_escape_string($q_port);
-  $c_port = mysql_real_escape_string($c_port);
-  $s_port = mysql_real_escape_string($s_port);
-  $type   = mysql_real_escape_string($type);
+  $ip     = mysqli_real_escape_string($ip);
+  $q_port = mysqli_real_escape_string($q_port);
+  $c_port = mysqli_real_escape_string($c_port);
+  $s_port = mysqli_real_escape_string($s_port);
+  $type   = mysqli_real_escape_string($type);
 
 //-----------------------------------------------------------------------------------------------------------+
 
   $ip_check     = gethostbyname($ip);
-  $mysql_result = mysql_query("SELECT `ip`,`disabled` FROM `{$lgsl_config['db']['prefix']}{$lgsl_config['db']['table']}` WHERE `type`='{$type}' AND `q_port`='{$q_port}'");
+  $mysql_result = mysqli_query("SELECT `ip`,`disabled` FROM `{$lgsl_config['db']['prefix']}{$lgsl_config['db']['table']}` WHERE `type`='{$type}' AND `q_port`='{$q_port}'");
 
-  while ($mysql_row = mysql_fetch_array($mysql_result, MYSQL_ASSOC))
+  while ($mysql_row = mysqli_fetch_array($mysql_result, MYSQLI_ASSOC))
   {
     if ($ip_check == gethostbyname($mysql_row['ip']))
     {
@@ -191,7 +191,7 @@
     $disabled = ($lgsl_config['public_add'] == "2") ? "0" : "1";
 
     $mysql_query  = "INSERT INTO `{$lgsl_config['db']['prefix']}{$lgsl_config['db']['table']}` (`type`,`ip`,`c_port`,`q_port`,`s_port`,`disabled`,`cache`,`cache_time`) VALUES ('{$type}','{$ip}','{$c_port}','{$q_port}','{$s_port}','{$disabled}','','')";
-    $mysql_result = mysql_query($mysql_query) or die(mysql_error());
+    $mysql_result = mysqli_query($mysql_query) or die(mysqli_error());
 
     $output .= "
     <div style='text-align:center;".lgsl_bg()."'>

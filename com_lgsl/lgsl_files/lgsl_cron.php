@@ -2,7 +2,7 @@
 
  /*----------------------------------------------------------------------------------------------------------\
  |                                                                                                            |
- |                      [ LIVE GAME SERVER LIST ] [ © RICHARD PERRY FROM GREYCUBE.COM ]                       |
+ |                      [ LIVE GAME SERVER LIST ] [ Â© RICHARD PERRY FROM GREYCUBE.COM ]                       |
  |                                                                                                            |
  |    Released under the terms and conditions of the GNU General Public License Version 3 (http://gnu.org)    |
  |                                                                                                            |
@@ -28,9 +28,9 @@
 //------------------------------------------------------------------------------------------------------------+
 
   $mysql_query  = "SELECT `type`,`ip`,`c_port`,`q_port`,`s_port` FROM `{$lgsl_config['db']['prefix']}{$lgsl_config['db']['table']}` WHERE `disabled`=0 ORDER BY `cache_time` ASC";
-  $mysql_result = mysql_query($mysql_query) or die(mysql_error());
+  $mysql_result = mysqli_query($mysql_query) or die(mysqli_error());
 
-  while($mysql_row = mysql_fetch_array($mysql_result, MYSQL_ASSOC))
+  while($mysql_row = mysqli_fetch_array($mysql_result, MYSQLI_ASSOC))
   {
     echo str_pad(lgsl_timer("taken"),  8,  " ").":".
          str_pad($mysql_row['type'],   15, " ").":".
